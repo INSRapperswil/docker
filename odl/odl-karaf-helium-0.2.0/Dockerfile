@@ -13,6 +13,8 @@ RUN apt-get update
 
 # Install OpenJDK 7 in headless mode
 RUN apt-get -y install openjdk-7-jre-headless
+# Install wget
+RUN apt-get -y install wget
 RUN apt-get clean
 
 # Set JAVA_HOME
