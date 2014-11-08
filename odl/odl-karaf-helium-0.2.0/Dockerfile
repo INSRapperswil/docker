@@ -59,4 +59,5 @@ ENTRYPOINT ["/opt/distribution-karaf-0.2.0-Helium/bin/start"]
 # Define working directory.
 WORKDIR /opt/distribution-karaf-0.2.0-Helium/bin
 
-CMD [ ]
+# Define default command.
+CMD ["bash"]
