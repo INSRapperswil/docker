@@ -54,7 +54,7 @@ RUN rm /opt/odl.tag.gz
 EXPOSE 6633 8080 8101
 
 # Run OpenDaylight
-ENTRYPOINT ["/opt/distribution-karaf-0.2.0-Helium/bin/run"]
+ENTRYPOINT ["/opt/distribution-karaf-0.2.0-Helium/bin/start"]
 
 # Define working directory.
 WORKDIR /opt/distribution-karaf-0.2.0-Helium/bin
