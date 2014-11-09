@@ -5,27 +5,26 @@
 # Pull base image
 FROM ubuntu
 
-# Author 
-MAINTAINER  "Docker INS" <docker@ins.hsr.ch>
+# Author
+MAINTAINER  Docker INS <docker@ins.hsr.ch>
 
 # Update the apt information
-RUN apt-get update
-
 # Install OpenJDK 7 in headless mode
-RUN apt-get -y install openjdk-7-jre-headless
 # Install wget
-RUN apt-get -y install wget
-RUN apt-get clean
+# Download distribution-karaf-0.2.0-Helium.tar.gz
+# Install (unzip) OpenDaylight
+RUN apt-get update && \
+    apt-get -y install openjdk-7-jre-headless \
+    wget && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    echo "Download distribution-karaf-0.2.0-Helium.tar.gz and install" && \
+    wget -q -O /opt/odl.tar.gz "http://nexus.opendaylight.org/content/groups/public/org/opendaylight/integration/distribution-karaf/0.2.0-Helium/distribution-karaf-0.2.0-Helium.tar.gz" && \
+    tar -C /opt -xzf /opt/odl.tar.gz && \
+    rm /opt/odl.tar.gz
 
 # Set JAVA_HOME
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64/
-
-# Download distribution-karaf-0.2.0-Helium.tar.gz
-RUN wget -q -O /opt/odl.tag.gz "http://nexus.opendaylight.org/content/groups/public/org/opendaylight/integration/distribution-karaf/0.2.0-Helium/distribution-karaf-0.2.0-Helium.tar.gz"
-
-# Install (unzip) OpenDaylight
-RUN tar -C /opt -xzf /opt/odl.tag.gz
-RUN rm /opt/odl.tag.gz
 
 # OpenDaylight Ports
 # 162 - SNMP4SDN
@@ -51,13 +50,13 @@ RUN rm /opt/odl.tag.gz
 # 8181 - MD-SAL RESTConf and DLUX
 # 8383 - Netconf
 # 12001 - ODL Clustering
-EXPOSE 6633 8080 8101
+EXPOSE 6633 8080 8101 8181
 
-# Run OpenDaylight
-ENTRYPOINT ["/opt/distribution-karaf-0.2.0-Helium/bin/start"]
 
 # Define working directory.
 WORKDIR /opt/distribution-karaf-0.2.0-Helium/bin
+
+ENTRYPOINT ["./karaf","server"]
 
 # Define default command.
 CMD ["bash"]
