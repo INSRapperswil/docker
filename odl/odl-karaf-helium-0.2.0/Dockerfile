@@ -56,7 +56,6 @@ EXPOSE 6633 8080 8101 8181
 # Define working directory.
 WORKDIR /opt/distribution-karaf-0.2.0-Helium/bin
 
-ENTRYPOINT ["./karaf","server"]
 
 # Define default command.
-CMD ["bash"]
+CMD ["./karaf","server"]
