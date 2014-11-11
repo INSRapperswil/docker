@@ -16,15 +16,30 @@ MAINTAINER  Docker INS <docker@ins.hsr.ch>
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       python \
+      python-setuptools \
+      python-pip \
+      python-eventlet \
+      python-routes \
+      python-webob \
+      python-paramiko \
+      python-pbr \
+      python-py \
+      python-six \
+      python-oslo.config \
+      python-lxml \
+      python-netaddr \
+      python-sphinx \
       wget \
       unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     echo "Download https://github.com/osrg/ryu/archive/master.zip and install" && \
-    wget -q -O /opt/ryu.zip "https://github.com/osrg/ryu/archive/master.zip" && \
-    unzip /opt/ryu.zip -d /opt/ryu && \
-    rm /opt/ryu.zip &&
-    python /opt/ryu/setup.py install
+    wget -O /opt/ryu.zip "http://github.com/osrg/ryu/archive/master.zip" --no-check-certificate && \
+    unzip -q /opt/ryu.zip -d /opt && \
+    mv /opt/ryu-master /opt/ryu && \
+    rm /opt/ryu.zip && \
+    cd /opt/ryu
+    python ./setup.py install
 
 
 # 6633 - OpenFlow
