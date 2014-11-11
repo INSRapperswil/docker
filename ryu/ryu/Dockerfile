@@ -38,7 +38,7 @@ RUN apt-get update && \
     unzip -q /opt/ryu.zip -d /opt && \
     mv /opt/ryu-master /opt/ryu && \
     rm /opt/ryu.zip && \
-    cd /opt/ryu
+    cd /opt/ryu && \
     python ./setup.py install
 
 
