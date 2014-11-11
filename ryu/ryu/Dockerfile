@@ -19,16 +19,14 @@ RUN apt-get update && \
       python-setuptools \
       python-pip \
       python-eventlet \
-      python-routes \
-      python-webob \
-      python-paramiko \
-      python-pbr \
-      python-py \
-      python-six \
-      python-oslo.config \
       python-lxml \
       python-netaddr \
-      python-sphinx \
+      python-msgpack \
+      python-oslo.config \
+      python-paramiko \
+      python-routes \
+      python-six \
+      python-webob \
       wget \
       unzip && \
     apt-get clean && \
