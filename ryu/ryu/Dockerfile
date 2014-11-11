@@ -1,5 +1,5 @@
 #
-# OpenDaylight Karaf Helium 0.2.0 Dockerfile
+# SDN Framework Ryu master
 #
 
 # Pull base image
@@ -11,7 +11,7 @@ MAINTAINER  Docker INS <docker@ins.hsr.ch>
 # Update the apt information
 # Install python
 # Install wget
-# Download distribution-karaf-0.2.0-Helium.tar.gz
+# Download osrg/ryu/archive/master.zip
 # Install (unzip) ryu
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
