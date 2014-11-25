@@ -3,7 +3,7 @@
 #
 
 # Pull base image
-FROM ubuntu
+FROM ubuntu:latest
 
 # Author
 MAINTAINER  Docker INS <docker@ins.hsr.ch>
@@ -49,5 +49,5 @@ WORKDIR /opt/ryu
 
 
 # Define default command.
-CMD ["./bin/ryu-manager ryu/app/simple_switch.py"]
+CMD ["./bin/ryu-manager", "ryu/app/simple_switch.py"]
 
