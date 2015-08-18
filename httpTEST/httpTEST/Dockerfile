@@ -12,4 +12,4 @@ MAINTAINER  Docker INS <docker@ins.hsr.ch>
 EXPOSE 80
 
 # Define default command.
-CMD ["./bin/sh", "-c", "while true; do echo -e 'HTTP/1.0 200 OK\r\n\r\nServer: `hostname`' | sudo nc -l -p 80 ; done"]
+CMD ["./bin/sh", "-c", "while true; do echo -e 'HTTP/1.0 200 OK\r\n\r\nServer: $HOSTNAME' | sudo nc -l -p 80 ; done"]
