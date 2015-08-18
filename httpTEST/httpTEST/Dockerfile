@@ -13,4 +13,4 @@ RUN echo -e 'HTTP/1.0 200 OK\r\n\r\nServer: ' > response.md && hostname >> respo
 EXPOSE 80
 
 # Define default command.
-CMD ["./bin/bash", "while true; nc -l -p 80 < response.md ; done"]
+CMD ["./bin/sh", "-c 'while true; do nc -l -p 80 < response.md ; done'"]
