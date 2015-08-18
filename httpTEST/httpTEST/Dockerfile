@@ -10,7 +10,7 @@ MAINTAINER  Docker INS <docker@ins.hsr.ch>
 
 # run while true with nohup
 # logfile: nohup.out
-RUN nohp sh -c "while true; do echo -e 'HTTP/1.0 200 OK\r\n\r\nServer: `hostname`' | sudo nc -l -p 80 ; done" &
+RUN nohup sh -c "while true; do echo -e 'HTTP/1.0 200 OK\r\n\r\nServer: `hostname`' | sudo nc -l -p 80 ; done" &
 
 
 # 80 - HTTP
