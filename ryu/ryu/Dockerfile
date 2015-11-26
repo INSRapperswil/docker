@@ -15,18 +15,10 @@ MAINTAINER  Docker INS <docker@ins.hsr.ch>
 # Install (unzip) ryu
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      python \
       python-setuptools \
       python-pip \
       python-eventlet \
       python-lxml \
-      python-netaddr \
-      python-msgpack \
-      python-oslo.config \
-      python-paramiko \
-      python-routes \
-      python-six \
-      python-webob \
       wget \
       unzip && \
     apt-get clean && \
