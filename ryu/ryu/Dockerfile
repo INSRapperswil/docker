@@ -37,6 +37,7 @@ RUN apt-get update && \
     mv /opt/ryu-master /opt/ryu && \
     rm /opt/ryu.zip && \
     cd /opt/ryu && \
+    pip install -r tools/pip-requires --upgrade && \
     python ./setup.py install
 
 
