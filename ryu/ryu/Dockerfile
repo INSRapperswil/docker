@@ -30,7 +30,8 @@ RUN apt-get update && \
     rm /opt/ryu.zip && \
     cd /opt/ryu && \
     pip install -r tools/pip-requires && \
-    python ./setup.py install
+    python ./setup.py install && \
+    pip install -r tools/pip-requires --upgrade
 
 
 # 6633 - OpenFlow
