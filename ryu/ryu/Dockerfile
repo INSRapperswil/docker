@@ -44,4 +44,3 @@ WORKDIR /opt/ryu
 
 # Define default command.
 CMD ["./bin/ryu-manager", "ryu/app/simple_switch.py"]
-
